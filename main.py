@@ -21,15 +21,17 @@ for root, dirs, files in os.walk(location):
                         arr_low.append(float(row['low']))
                         arr_close.append(float(row['close']))
 
+def format(arr):
+    arr = float('{:.3f}'.format(sum(arr)/len(arr)))
+    return arr
+
 if arr_date != [] or arr_high != [] or arr_low != [] or arr_close != []:
-    arr_date = float('{:.3f}'.format(sum(arr_date)/len(arr_date)))
-    arr_high = float('{:.3f}'.format(sum(arr_high)/len(arr_high)))
-    arr_low = float('{:.3f}'.format(sum(arr_low)/len(arr_low)))
-    arr_close = float('{:.3f}'.format(sum(arr_close)/len(arr_close)))
-    print(arr_date)
-    print(arr_high)
-    print(arr_low)
-    print(arr_close)
+
+    arr_date = format(arr_date)
+    arr_high = format(arr_high)
+    arr_low = format(arr_low)
+    arr_close = format(arr_close)
+    print(arr_date),print(arr_high),print(arr_low), print(arr_close)
 else:
     print('Данные не найдены')
 
